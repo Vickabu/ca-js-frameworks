@@ -1,9 +1,12 @@
+import PropTypes from "prop-types";
 import Ratings from "./Ratings";
 
-const ProductCard = ( product ) => {
+const ProductListCard = ({ product }) => {
+  console.log('product', product);
+  
   return (
-    <div className="border rounded bg-white flex flex-col h-full shadow-lg">
-      <div className="w-full h-[210px] overflow-hidden">
+    <div className="border rounded border-gray-400 bg-white flex flex-col h-full shadow-lg">
+      <div className="w-full h-[210px] overflow-hidden rounded-t">
         <img src={product.image.url} alt={product.title} className="w-full h-full object-cover" />
       </div>
 
@@ -29,5 +32,17 @@ const ProductCard = ( product ) => {
   );
 };
 
+ProductListCard.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+    price: PropTypes.number.isRequired,
+    discountedPrice: PropTypes.number,
+    rating: PropTypes.number,
+  }).isRequired,
+};
 
-export default ProductCard;
+export default ProductListCard;
