@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
 import Ratings from "./Ratings";
+import { Link } from "react-router-dom";
+
 
 const ProductListCard = ({ product }) => {
-  console.log('product', product);
+  console.log('product', product.id);
   
   return (
+    <Link to={`/product/${product.id}`}>
     <div className="border rounded border-gray-400 bg-white flex flex-col h-full shadow-lg">
       <div className="w-full h-[210px] overflow-hidden rounded-t">
         <img src={product.image.url} alt={product.title} className="w-full h-full object-cover" />
@@ -29,6 +32,7 @@ const ProductListCard = ({ product }) => {
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 
