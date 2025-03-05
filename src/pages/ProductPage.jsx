@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Ratings from "../components/Ratings";
+import Button from "../components/Button";
 
 function ProductPage() {
   const { id } = useParams(); 
@@ -58,9 +59,11 @@ function ProductPage() {
         <div className="mt-auto">
           <Ratings rating={product.rating} />
         </div>
+        <div>
+          <Button text="Add to Cart" />
+        </div>
       </div>
       
-
     </div>
   );
 }
