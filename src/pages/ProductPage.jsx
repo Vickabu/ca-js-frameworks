@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Ratings from "../components/Ratings";
 import Button from "../components/Button";
+import Reviews from "../components/Reviews";
 
 function ProductPage() {
   const { id } = useParams(); 
@@ -49,9 +50,10 @@ function ProductPage() {
             <p className="text-[12px] md:text-[16px] lg:text-[18px]">{product.description}</p>
           </div>
           <div className="flex items-center justify-between mt-2">
-            {/* temp reviews */}
-            <h2 className="text-[12px] md:text-[16px] lg:text-[18px]">Reviews</h2>
-            <Ratings rating={product.rating} />
+            <Reviews reviews={product.reviews}/>
+            <div className="flex mb-auto">
+              <Ratings rating={product.rating}/>
+            </div>
           </div>  
             
           <div className="flex flex-col gap-3 items-end mt-auto">
