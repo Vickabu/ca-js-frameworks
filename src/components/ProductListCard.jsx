@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import Ratings from "./Ratings";
 import { Link } from "react-router-dom";
 
-
 const ProductListCard = ({ product }) => {
   console.log('product', product.id);
   
