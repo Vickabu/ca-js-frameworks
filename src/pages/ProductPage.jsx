@@ -10,6 +10,7 @@ function ProductPage() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     async function getProduct() {
@@ -31,6 +32,11 @@ function ProductPage() {
 
     getProduct();
   }, [id]);
+
+  const addToCart = () => {
+    setCart([...cart, product]);
+    console.log("Cart", [...cart, product]);
+  }
 
   if (loading) return <h2>Loading...</h2>;
   if (error) return <h2>Error: {error}</h2>;
@@ -60,7 +66,7 @@ function ProductPage() {
           <Ratings rating={product.rating} />
         </div>
         <div>
-          <Button text="Add to Cart" />
+          <Button text="Add to Cart" onClick={addToCart} />
         </div>
       </div>
       
