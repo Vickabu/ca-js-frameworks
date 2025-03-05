@@ -9,7 +9,7 @@ const Ratings = ({ rating = 0 }) => {
       {Array.from({ length: 5 }, (_, index) => (
         <Star
           key={index}
-          className={index < roundedRating ? 'fill-yellow-500 text-yellow-500' : 'text-gray-300'}
+          className={index < roundedRating ? 'fill-yellow-500 text-yellow-500 w-[12px] md:w-[16px] lg:w-[18px]' : 'text-gray-300 w-[12px] md:w-[16px] lg:w-[18px]'}
         />
       ))}
     </div>
