@@ -1,16 +1,18 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { UseCart } from "../components/CartContext";
 import Ratings from "../components/Ratings";
 import Button from "../components/Button";
 import Reviews from "../components/Reviews";
 
 function ProductPage() {
-  const { id } = useParams(); 
+  const { id } = useParams();
   console.log("Product ID:", id);
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { addToCart } = UseCart();
 
   useEffect(() => {
     async function getProduct() {
@@ -21,8 +23,7 @@ function ProductPage() {
         }
         const data = await response.json();
         setProduct(data.data);
-        console.log(data);
-        
+        console.log("Fetched Product:", data.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -32,6 +33,15 @@ function ProductPage() {
 
     getProduct();
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (!product) {
+      console.error("Product is null, cannot add to cart");
+      return;
+    }
+    console.log("Adding to Cart:", product);
+    addToCart(product);
+  };
 
   if (loading) return <h2>Loading...</h2>;
   if (error) return <h2>Error: {error}</h2>;
@@ -68,13 +78,12 @@ function ProductPage() {
               )}
             </div>
             <div>
-              <Button text="Add to Cart" />
+              <Button text="Add to Cart" onClick={handleAddToCart} />
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    
+      </div>    
+    </div>    
   );
 }
 
