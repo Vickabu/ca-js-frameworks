@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/lazySalesLogo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { ShoppingCart } from "lucide-react";
 
 export default function Header() {
     
@@ -23,9 +22,7 @@ export default function Header() {
           Contact
         </Link>
         {}
-        <div className="relative">
-          <FontAwesomeIcon icon={faShoppingCart} className="w-6 h-6" />
-        </div>
+        <ShoppingCart/>
       </nav>
     </header>
   );
