@@ -328,7 +328,6 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          {/* Desktop-nav: skjules på mobil */}
           <nav className="hidden md:flex items-center gap-8 text-black">
             <Link
               to="/"
@@ -344,14 +343,14 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* Hamburger-meny: vises kun på mobil */}
+          
           <div className="md:hidden">
             <button onClick={toggleMenu} className="text-black focus:outline-none">
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
-          {/* Cart-ikonet: vises på alle skjermstørrelser */}
+      
           <div className="relative" ref={cartIconContainerRef}>
             <div
               onClick={toggleCartOverlay}
@@ -404,7 +403,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobilmeny: vises under header når hamburger er åpen */}
+      
       {isMenuOpen && (
         <nav className="md:hidden bg-white border-t border-black px-8 py-2">
           <Link
