@@ -121,6 +121,7 @@ export default function CheckoutPage() {
 
         <div className="flex justify-between mb-4">
           <p>Shipping:</p>
+          <p className="text-gray-400 text-sm">Arrives in 132-312 working days</p>
           <p>Free</p>
         </div>
         <hr className="my-3" />
