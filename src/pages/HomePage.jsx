@@ -25,7 +25,7 @@ function HomePage() {
     <div className="mt-10 max-w-[1440px] w-full mx-5">
       <SearchBar onSearch={setSearchQuery} />
 
-      <div className="grid grid-cols-3 gap-4 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => <ProductListCard key={product.id} product={product} />)
         ) : (
