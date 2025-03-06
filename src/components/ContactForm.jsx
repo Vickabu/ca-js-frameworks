@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import Button from "./Button"; // Import the Button component
 
 const schema = yup.object().shape({
   fullName: yup.string().min(3, "Full name must be at least 3 characters").required("Full name is required"),
@@ -12,7 +13,6 @@ const schema = yup.object().shape({
 
 const ContactForm = () => {
     const [successMessage, setSuccessMessage] = useState("");
-  
     const {
       register,
       handleSubmit,
@@ -71,15 +71,10 @@ const ContactForm = () => {
             <p className="text-red-500 text-sm mt-1">{errors.body?.message}</p>
           </div>
   
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition duration-200"
-          >
-            Submit
-          </button>
+          <Button type="submit" text="Submit" className="w-full"/>
         </form>
       </div>
     );
-  };
-  
+};
+
 export default ContactForm;
