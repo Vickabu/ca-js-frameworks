@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { UseCart } from "../components/CartContext";
 import { useNavigate } from "react-router-dom";
-// import Button from "../components/Button";
+import { Trash2, Plus, Minus } from "lucide-react";
+
 
 export default function CheckoutPage() {
   const { cart, removeFromCart, updateQuantity } = UseCart();
@@ -27,10 +28,15 @@ export default function CheckoutPage() {
     }
   }, [cart]);
 
+  const originalTotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  ).toFixed(2);
+
   const totalAmount = cartItems.reduce(
     (sum, item) => sum + (item.discountedPrice || item.price) * item.quantity,
     0
-  );
+  ).toFixed(2);
 
   const handleInputChange = (e) => {
     setCustomer({ ...customer, [e.target.name]: e.target.value });
@@ -55,28 +61,64 @@ export default function CheckoutPage() {
   return (
     <div className="flex flex-col md:flex-row gap-8 p-6 min-h-screen">
       <div className="w-full md:w-2/3 p-6 shadow-lg rounded order-1 md:order-2">
-        <h2 className="text-xl font-bold mb-4">Order Summary</h2>
+        <h2 className="text-xl font-bold mb-4 text-center">Order Summary</h2>
+
         {cartItems.map((item) => (
-          <div key={item.id} className="flex items-center justify-between border p-4 mb-2 rounded">
-            <div className="flex items-center">
-              <img src={item.image.url} alt={item.title} className="w-16 h-16 object-cover rounded-md mr-4" />
-              <div>
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p>Quantity: {item.quantity}</p>
-                <p>Price: Kr {item.discountedPrice || item.price}</p>
-              </div>
-            </div>
-            <div className="flex items-center">
-              <input type="number" value={item.quantity} onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))} min="1" className="border p-2 w-20 text-center rounded"/>
-            </div>
-            <div onClick={() => handleRemoveFromCart(item.id)}  className="bg-red-500 text-white p-2 rounded cursor-pointer">X</div>
-          </div>
-        ))}
+      <div key={item.id} className="flex items-center justify-between border p-4 mb-2 rounded">
+      <div className="flex items-center">
+      <img src={item.image.url} alt={item.title} className="w-16 h-16 object-cover rounded-md mr-4" />
+      <div>
+  <h3 className="text-lg font-semibold">{item.title}</h3>
+  {item.discountedPrice && item.discountedPrice < item.price ? (
+    <p>
+      <span className="line-through text-gray-500 mr-2">Kr {item.price}</span>
+      <span className="text-green-500 font-bold">Kr {item.discountedPrice}</span>
+    </p>
+  ) : (
+    <p>Kr {item.price}</p>
+  )}
+</div>
+    </div>
+
+    <div className="flex items-center border rounded">
+      <button
+        onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+        disabled={item.quantity <= 1}
+        className={` ${item.quantity > 1 ? "text-black" : "text-gray-400 cursor-not-allowed"}`}
+      >
+        <Minus size={16} />
+      </button>
+      <span className="px-4">{item.quantity}</span>
+      <button
+        onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+        className=" text-black"
+      >
+        <Plus size={16} />
+      </button>
+    </div>
+
+    <button onClick={() => handleRemoveFromCart(item.id)} className="bg-green-500 text-white p-2 rounded">
+      <Trash2 size={20} />
+    </button>
+  </div>
+))}
+
         <hr className="my-3" />
         <div className="flex justify-between mb-4">
-          <p>Subtotal:</p>
-          <p>Kr {totalAmount}</p>
-        </div>
+  <p>Subtotal:</p>
+  {totalAmount < originalTotal ? (
+    <div className="text-right">
+      <p>
+        <span className="line-through text-gray-500 mr-2">Kr {originalTotal}</span>
+        <span className="text-green-500 font-bold">Kr {totalAmount}</span>
+      </p>
+      <p className="text-green-800 text-sm font-semibold">You are saving kr {originalTotal - totalAmount}!</p>
+    </div>
+  ) : (
+    <p>Kr {totalAmount}</p>
+  )}
+</div>
+
         <div className="flex justify-between mb-4">
           <p>Shipping:</p>
           <p>Free</p>
