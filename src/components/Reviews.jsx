@@ -4,7 +4,6 @@ import Ratings from "./Ratings";
 import { X } from "lucide-react";
 
 const Reviews = ({ reviews }) => {
-  console.log(reviews);
   
   const [isOpen, setIsOpen] = useState(false);
 

@@ -7,7 +7,6 @@ import Reviews from "../components/Reviews";
 
 function ProductPage() {
   const { id } = useParams();
-  console.log("Product ID:", id);
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -23,7 +22,6 @@ function ProductPage() {
         }
         const data = await response.json();
         setProduct(data.data);
-        console.log("Fetched Product:", data.data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -39,7 +37,6 @@ function ProductPage() {
       console.error("Product is null, cannot add to cart");
       return;
     }
-    console.log("Adding to Cart:", product);
     addToCart(product);
   };
 
