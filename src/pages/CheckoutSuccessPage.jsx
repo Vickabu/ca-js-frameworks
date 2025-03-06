@@ -16,7 +16,7 @@ const CheckoutSuccessPage = () => {
         </p>
 
         <div className="mt-6 mx-auto">
-          <Button text="Continue Shopping" onClick={() => navigate("/")} />
+          <Button className="bg-red-600" text="Continue Shopping" onClick={() => navigate("/") }/>
         </div>
       </div>
     </div>

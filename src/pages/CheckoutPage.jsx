@@ -5,7 +5,7 @@ import { Trash2, Plus, Minus } from "lucide-react";
 
 
 export default function CheckoutPage() {
-  const { cart, removeFromCart, updateQuantity } = UseCart();
+  const { cart, removeFromCart, updateQuantity, clearCart  } = UseCart();
   const navigate = useNavigate();
 
   const [customer, setCustomer] = useState({
@@ -45,6 +45,7 @@ export default function CheckoutPage() {
   const handleOrderSubmit = () => {
     alert("Order completed! 🎉");
     console.log("Order details:", customer);
+    clearCart();
     navigate("/checkout-success");
   };
 
