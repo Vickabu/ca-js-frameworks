@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Button from "./Button"; // Import the Button component
+import Button from "./Button";
 
 const schema = yup.object().shape({
   fullName: yup.string().min(3, "Full name must be at least 3 characters").required("Full name is required"),
