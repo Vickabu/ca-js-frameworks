@@ -6,8 +6,8 @@ const CheckoutSuccessPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6">
-      <div className="bg-white p-8 rounded shadow-md text-center">
+    <div className="flex flex-col  justify-center min-h-screen">
+      <div className="bg-white p-20 rounded shadow-md text-center">
         <CheckCircle size={60} className="text-green-500 mb-4 mx-auto" />
         <h1 className="text-2xl font-bold">Thank you for your purchase! 🎉</h1>
         <p className="text-gray-800 font-semibold mt-4">Your order number is: #123456789</p>
@@ -27,8 +27,3 @@ export default CheckoutSuccessPage;
 
 
 
-// function CheckoutSuccessPage() {
-//   return <h1>Checkout Success Page</h1>;
-// }
-
-// export default CheckoutSuccessPage;
