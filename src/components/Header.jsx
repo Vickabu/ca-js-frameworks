@@ -4,6 +4,7 @@
   import { UseCart } from "../components/CartContext";
   import Button from "../components/Button";
   import logo from "../assets/lazySalesLogo.png";
+  import { Trash2} from "lucide-react";
   
   export default function Header() {
     const { cart, removeFromCart } = UseCart();
@@ -78,9 +79,12 @@
             </nav>
   
             <div className="md:hidden">
-              <button onClick={toggleMenu} className="text-black focus:outline-none">
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+            <Button 
+                onClick={toggleMenu} 
+                variant="secondary" 
+                className="p-2 focus:outline-none shadow-none"
+                icon={isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              />
             </div>
   
             <div className="relative" ref={cartIconContainerRef}>
@@ -99,7 +103,7 @@
               {isCartOverlayVisible && (
                 <div
                   ref={overlayRef}
-                  className="absolute right-0 mt-2 w-[350px] border border-black bg-white p-4 shadow-lg z-10 transition-all duration-300 ease-out transform"
+                  className="absolute right-0 mt-2 w-[350px]  bg-white p-8 shadow-lg z-10 transition-all duration-300 ease-out transform"
                 >
                   {cart.map((item) => (
                     <div key={item.id} className="flex items-center justify-between mb-4">
@@ -114,12 +118,12 @@
                         <h2 className="font-bold">{item.title}</h2>
                         <p className="font-bold">Kr {item.price}</p>
                       </div>
-                      <button
-                        className="text-white text-xl font-bold transition-colors duration-200 hover:text-red-300"
+                      <Button 
                         onClick={() => removeFromCart(item.id)}
-                      >
-                        X
-                      </button>
+                        variant="secondary"
+                        className="p-1 text-black bg-gray-100 hover:bg-red-500"
+                        icon={<Trash2 size={20} />}
+                        />
                     </div>
                   ))}
   
@@ -127,6 +131,7 @@
                     text="Go to cart"
                     onClick={goToCheckout}
                     variable="primary"
+                    className="w-full"
                   />
                 </div>
               )}
@@ -135,7 +140,7 @@
         </div>
   
         {isMenuOpen && (
-          <nav className="md:hidden bg-white border-t border-black px-8 py-2">
+          <nav className="md:hidden bg-[#C8F9C6] px-8 py-2 text-center text-lg pb-5">
             <Link
               onClick={() => setMenuOpen(false)}
               to="/"
