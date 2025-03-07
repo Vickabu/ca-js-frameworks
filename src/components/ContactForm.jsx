@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import PropTypes from "prop-types";
 import Button from "./Button";
 
 const schema = yup.object().shape({
@@ -10,6 +11,36 @@ const schema = yup.object().shape({
   email: yup.string().email("Invalid email format").required("Email is required"),
   body: yup.string().min(3, "Message must be at least 3 characters").required("Message is required"),
 });
+
+const FormInput = ({ label, type, name, register, errors, placeholder }) => (
+  <div>
+    <label className="block font-medium mb-2">{label}</label>
+    {type === "textarea" ? (
+      <textarea
+        {...register(name)}
+        className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 h-40"
+        placeholder={placeholder}
+      />
+    ) : (
+      <input
+        type={type}
+        {...register(name)}
+        className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder={placeholder}
+      />
+    )}
+    <p className="text-red-500 text-sm mt-1">{errors[name]?.message}</p>
+  </div>
+);
+
+FormInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  register: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
+  placeholder: PropTypes.string,
+};
 
 const ContactForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -36,49 +67,10 @@ const ContactForm = () => {
         </p>
       )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div>
-          <label className="block font-medium mb-2">Full Name</label>
-          <input
-            type="text"
-            {...register("fullName")}
-            className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Enter your full name"
-          />
-          <p className="text-red-500 text-sm mt-1">{errors.fullName?.message}</p>
-        </div>
-
-        <div>
-          <label className="block font-medium mb-2">Subject</label>
-          <input
-            type="text"
-            {...register("subject")}
-            className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Enter the subject"
-          />
-          <p className="text-red-500 text-sm mt-1">{errors.subject?.message}</p>
-        </div>
-
-        <div>
-          <label className="block font-medium mb-2">Email</label>
-          <input
-            type="email"
-            {...register("email")}
-            className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Enter your email"
-          />
-          <p className="text-red-500 text-sm mt-1">{errors.email?.message}</p>
-        </div>
-
-        <div>
-          <label className="block font-medium mb-2">Message</label>
-          <textarea
-            {...register("body")}
-            className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 h-40"
-            placeholder="Write your message here..."
-          />
-          <p className="text-red-500 text-sm mt-1">{errors.body?.message}</p>
-        </div>
-
+        <FormInput label="Full Name" type="text" name="fullName" register={register} errors={errors} placeholder="Enter your full name" />
+        <FormInput label="Subject" type="text" name="subject" register={register} errors={errors} placeholder="Enter the subject" />
+        <FormInput label="Email" type="email" name="email" register={register} errors={errors} placeholder="Enter your email" />
+        <FormInput label="Message" type="textarea" name="body" register={register} errors={errors} placeholder="Write your message here..." />
         <Button text="Submit" type="submit" variant="secondary" />
       </form>
     </div>
