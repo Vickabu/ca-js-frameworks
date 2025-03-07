@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 
-function Button({ text, onClick, type = "button", variant = "primary", className = "" }) {
-    const baseStyles = "border-2 rounded-lg px-3 py-1.5 text-base font-medium font-inherit transition-all duration-300 cursor-pointer focus:outline-none bg-[#34ad15] text-white border-transparent shadow-md hover:bg-[#2b8e12] hover:border-[#2b8e12] hover:scale-105 focus:border-white focus:shadow-[0_0_8px_rgba(52,173,21,0.8)]";
+function Button({ text, onClick, type = "button", variant = "primary", className = "", icon}) {
+    const baseStyles = "rounded text-base font-medium font-inherit transition duration-100 cursor-pointer shadow-md hover:scale-101";
 
     const variantStyles = {
-        primary: "",
-        secondary: "w-full"
+        primary: "bg-[#34ad15] hover:bg-[#2b8e12] px-5 py-1.5 text-white",
+        secondary: ""
     };
 
     return (
@@ -15,6 +15,7 @@ function Button({ text, onClick, type = "button", variant = "primary", className
             className={`${baseStyles} ${variantStyles[variant]} ${className}`}
         >
             {text}
+            {icon}
         </button>
     );
 }
@@ -25,6 +26,7 @@ Button.propTypes = {
     type: PropTypes.string,
     variant: PropTypes.oneOf(["primary", "secondary"]),
     className: PropTypes.string,
+    icon: PropTypes.element,
 };
 
 export default Button;

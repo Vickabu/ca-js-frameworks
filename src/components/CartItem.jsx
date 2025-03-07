@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Trash2, Plus, Minus } from "lucide-react";
+import Button from "./Button";
 
 
 export default function CartItem({ item, handleQuantityChange, handleRemoveFromCart }) {
@@ -22,21 +23,29 @@ export default function CartItem({ item, handleQuantityChange, handleRemoveFromC
 
       <div className="flex items-center">
         {item.quantity > 1 && (
-          <button
-            onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-          >
-            <Minus size={16} />
-          </button>
+           <Button 
+           onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+           variant="secondary"
+           className="p-1 bg-gray-100 hover:bg-red-400"
+           icon={<Minus size={16} />}
+         />
         )}
         <span className="px-4">{item.quantity}</span>
-        <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>
-          <Plus size={16} />
-        </button>
+
+        <Button 
+           onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+           variant="secondary"
+           className="p-1 bg-gray-100 hover:bg-green-400"
+           icon={<Plus size={16} />}
+         />
       </div>
 
-      <button onClick={() => handleRemoveFromCart(item.id)}>
-        <Trash2 size={20} />
-      </button>
+      <Button 
+           onClick={() => handleRemoveFromCart(item.id)}
+           variant="secondary"
+           className="p-1 text-black bg-gray-100 hover:bg-red-500"
+           icon={<Trash2 size={20} />}
+         />
     </div>
   );
 }

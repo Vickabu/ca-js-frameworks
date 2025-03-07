@@ -59,7 +59,7 @@ export default function CheckoutPage() {
         <div className="w-full text-center p-10 shadow-lg rounded align-center my-auto">
           <ShoppingCart size={50} className="mx-auto mb-4" />
           <p className="text-gray-600 text-lg font-semibold my-6">
-            Your cart is empty. You have to add stuff, to buy stuff - it's not that hard!
+            Your cart is empty. You have to add stuff, to buy stuff - it is not that hard!
           </p>
           <p className="mb-4">Push the button, choose a product, add it to your cart... then checkout...</p>
           <ChevronDown size={24} className="text-gray-500 animate-bounce mx-auto" />
