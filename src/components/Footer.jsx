@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/lazySalesLogo.png";
+import logo from "/lazy-sales-icon.png";
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
         <img
           src={logo}
           alt="Lazy Sales Logo"
-          className="w-50 h-50 object-contain"
+          className="w-20 md:w-30 object-contain"
         />
       </div>
 
