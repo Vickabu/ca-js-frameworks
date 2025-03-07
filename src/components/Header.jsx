@@ -103,7 +103,7 @@
               {isCartOverlayVisible && (
                 <div
                   ref={overlayRef}
-                  className="absolute right-[-32px] top-[40px] md:top-[60px] md:w-[450px] bg-red-100 p-8 shadow-lg z-10 transition-all duration-300 ease-out transform w-screen"
+                  className="absolute right-[-32px] top-[40px] md:top-[60px] md:w-[450px] bg-white p-8 shadow-lg z-10 transition-all duration-300 ease-out transform w-screen"
                 >
                   {cart.map((item) => (
                     <div key={item.id} className="flex items-center justify-between mb-4">
