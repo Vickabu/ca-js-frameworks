@@ -54,7 +54,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 p-6">
+    <div className="flex flex-col md:flex-row gap-8 md:p-6">
       {cart.length === 0 ? (
         <div className="w-full text-center p-10 shadow-lg rounded align-center my-auto">
           <ShoppingCart size={50} className="mx-auto mb-4" />
