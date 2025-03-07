@@ -12,7 +12,7 @@ const CheckoutSuccessPage = () => {
       <div className="bg-white p-20 rounded shadow-md text-center">
         <SuccessMessage orderNumber={orderNumber} />
         <div className="mt-6 mx-auto">
-          <Button className="bg-red-600" text="Continue Shopping" onClick={() => navigate("/")} />
+          <Button variant="primary" text="Continue Shopping" onClick={() => navigate("/")} />
         </div>
       </div>
     </div>

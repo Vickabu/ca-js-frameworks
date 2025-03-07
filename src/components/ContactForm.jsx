@@ -62,7 +62,7 @@ const ContactForm = () => {
   return (
     <div className="w-full max-w-2xl bg-[#fdfdfd] p-8 rounded shadow-xl text-gray-700">
       {successMessage && (
-        <p className="text-green-600 font-semibold text-center mb-4 bg-green-100 p-2 rounded">
+        <p className="text-[#024002] font-semibold text-center mb-4 bg-green-100 p-2 rounded">
           {successMessage}
         </p>
       )}

@@ -35,7 +35,7 @@ export default function CartItem({ item, handleQuantityChange, handleRemoveFromC
         <Button 
            onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
            variant="secondary"
-           className="p-1 bg-gray-100 hover:bg-green-400"
+           className="p-1 bg-gray-100 hover:bg-green-600"
            icon={<Plus size={16} />}
          />
       </div>
