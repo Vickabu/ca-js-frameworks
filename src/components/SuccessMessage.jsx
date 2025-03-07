@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const SuccessMessage = ({ orderNumber }) => {
   return (
     <div className="text-center">
-      <CheckCircle size={60} className="text-green-500 mb-4 mx-auto" />
+      <CheckCircle size={60} className="text-green-600 mb-4 mx-auto" />
       <h1 className="text-2xl font-bold">Thank you for your purchase! 🎉</h1>
       <p className="text-gray-800 font-semibold mt-4">Your order number is: {orderNumber}</p>
       <p className="text-gray-600 mt-2">

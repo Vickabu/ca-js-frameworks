@@ -18,14 +18,14 @@ const FormInput = ({ label, type, name, register, errors, placeholder }) => (
     {type === "textarea" ? (
       <textarea
         {...register(name)}
-        className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 h-40"
+        className="w-full p-3 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 h-40"
         placeholder={placeholder}
       />
     ) : (
       <input
         type={type}
         {...register(name)}
-        className="w-full p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+        className="w-full p-3 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
         placeholder={placeholder}
       />
     )}
@@ -60,9 +60,9 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl bg-[#C8F9C6] p-8 rounded-xl shadow-xl text-gray-700">
+    <div className="w-full max-w-2xl bg-[#fdfdfd] p-8 rounded shadow-xl text-gray-700">
       {successMessage && (
-        <p className="text-green-600 font-semibold text-center mb-4 bg-green-100 p-2 rounded-md">
+        <p className="text-[#024002] font-semibold text-center mb-4 bg-green-100 p-2 rounded">
           {successMessage}
         </p>
       )}
@@ -71,7 +71,7 @@ const ContactForm = () => {
         <FormInput label="Subject" type="text" name="subject" register={register} errors={errors} placeholder="Enter the subject" />
         <FormInput label="Email" type="email" name="email" register={register} errors={errors} placeholder="Enter your email" />
         <FormInput label="Message" type="textarea" name="body" register={register} errors={errors} placeholder="Write your message here..." />
-        <Button text="Submit" type="submit" variant="secondary" />
+        <Button text="Submit" type="submit" variant="primary"/>
       </form>
     </div>
   );
