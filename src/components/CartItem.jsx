@@ -24,18 +24,17 @@ export default function CartItem({ item, handleQuantityChange, handleRemoveFromC
         {item.quantity > 1 && (
           <button
             onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-            className="text-black"
           >
             <Minus size={16} />
           </button>
         )}
         <span className="px-4">{item.quantity}</span>
-        <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)} className="text-black">
+        <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>
           <Plus size={16} />
         </button>
       </div>
 
-      <button onClick={() => handleRemoveFromCart(item.id)} className="bg-green-500 text-white p-2 rounded">
+      <button onClick={() => handleRemoveFromCart(item.id)}>
         <Trash2 size={20} />
       </button>
     </div>

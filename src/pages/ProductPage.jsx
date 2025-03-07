@@ -82,7 +82,9 @@ function ProductPage() {
               )}
             </div>
             <div>
-              <Button text="Add to Cart" onClick={handleAddToCart} />
+              <Button text="Add to Cart" onClick={handleAddToCart}
+              variant="secondary"
+              />
             </div>
             {cartQuantity === 0 ? null : <p className="text-[12px] md:text-[16px] lg:text-[18px]">Added to cart: {cartQuantity}</p>}
           </div>

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { UseCart } from "../components/CartContext";
-import OrderSummary from "../components/OrderSummary";
-import PaymentForm from "../components/PaymentForm";
+import { UseCart } from "../components/CartContext";  
+import OrderSummary from "../components/OrderSummary";  
+import PaymentForm from "../components/PaymentForm";  
 import CustomerForm from "../components/CustomerForm";
-import { ShoppingCart, ChevronDown } from "lucide-react";
-
+import Button from "../components/Button";
+import { ShoppingCart, ChevronDown } from "lucide-react"; 
 
 const generateOrderNumber = () => {
   return `#${Math.floor(Math.random() * 900000) + 100000}`; 
@@ -59,16 +59,15 @@ export default function CheckoutPage() {
         <div className="w-full text-center p-10 shadow-lg rounded align-center my-auto">
           <ShoppingCart size={50} className="mx-auto mb-4" />
           <p className="text-gray-600 text-lg font-semibold my-6">
-            Your cart is empty. You have to add stuff, to buy stuff - its not that hard!
+            Your cart is empty. You have to add stuff, to buy stuff - it's not that hard!
           </p>
           <p className="mb-4">Push the button, choose a product, add it to your cart... then checkout...</p>
           <ChevronDown size={24} className="text-gray-500 animate-bounce mx-auto" />
-          <button
+          <Button
+            text="Start Shopping"
             onClick={() => navigate("/")}
-            className=" text-white py-2 px-4 rounded-md font-bold"
-          >
-            Start Shopping
-          </button>
+            variant="primary"
+          />
         </div>
       ) : (
         <>
@@ -86,12 +85,12 @@ export default function CheckoutPage() {
             <CustomerForm customer={customer} handleInputChange={handleInputChange} />
             <PaymentForm customer={customer} handleInputChange={handleInputChange} />
 
-            <button
-              onClick={handleOrderSubmit}
-              className="mt-5 bg-green-600 py-2 px-4 w-full rounded-md font-bold hover:bg-green-700"
-            >
-              Complete Order
-            </button>
+            <Button 
+              text="Complete Order" 
+              onClick={handleOrderSubmit} 
+              type="submit" 
+              variant="secondary" 
+            />
           </div>
         </>
       )}
