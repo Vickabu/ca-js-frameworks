@@ -1,4 +1,6 @@
+import PropTypes from "prop-types";
 import { Trash2, Plus, Minus } from "lucide-react";
+
 
 export default function CartItem({ item, handleQuantityChange, handleRemoveFromCart }) {
   return (
@@ -39,3 +41,18 @@ export default function CartItem({ item, handleQuantityChange, handleRemoveFromC
     </div>
   );
 }
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    discountedPrice: PropTypes.number, 
+    quantity: PropTypes.number.isRequired,
+    image: PropTypes.shape({
+      url: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+  handleQuantityChange: PropTypes.func.isRequired,
+  handleRemoveFromCart: PropTypes.func.isRequired,
+};

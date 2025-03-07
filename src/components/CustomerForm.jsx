@@ -1,4 +1,6 @@
 
+import PropTypes from "prop-types";
+
 export default function CustomerForm({ customer, handleInputChange }) {
   return (
     <div className="mb-6">
@@ -18,3 +20,12 @@ export default function CustomerForm({ customer, handleInputChange }) {
     </div>
   );
 }
+
+CustomerForm.propTypes = {
+  customer: PropTypes.shape({
+    fullName: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+  }).isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+};
