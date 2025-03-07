@@ -50,14 +50,14 @@
     }, [isCartOverlayVisible]);
   
     return (
-      <header className="bg-[#C8F9C6] relative">
+      <header className="bg-[#C8F9C6] relative h-[60px] md:h-[100px] flex flex-col justify-center">
         <div className="flex items-center justify-between px-8">
           <div className="flex items-center gap-4">
             <Link to="/" className="text-2xl font-bold text-black hover:underline">
               <img
                 src={logo}
                 alt="Lazy Sales Logo"
-                className="h-40 w-40 object-contain transition-transform duration-300 hover:scale-105"
+                className="w-20 md:w-30 object-contain transition-transform duration-300 hover:scale-105"
               />
             </Link>
           </div>
@@ -103,7 +103,7 @@
               {isCartOverlayVisible && (
                 <div
                   ref={overlayRef}
-                  className="absolute right-0 mt-2 w-[350px]  bg-white p-8 shadow-lg z-10 transition-all duration-300 ease-out transform"
+                  className="absolute right-[-32px] top-[40px] md:top-[62px]  md:w-[350px] bg-white p-8 shadow-lg z-10 transition-all duration-300 ease-out transform w-screen"
                 >
                   {cart.map((item) => (
                     <div key={item.id} className="flex items-center justify-between mb-4">
