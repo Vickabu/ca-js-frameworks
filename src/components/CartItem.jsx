@@ -5,15 +5,15 @@ import Button from "./Button";
 
 export default function CartItem({ item, handleQuantityChange, handleRemoveFromCart }) {
   return (
-    <div className="flex items-center justify-between border p-4 mb-2 rounded">
+    <div className="flex items-center justify-between border p-4 mb-4 rounded">
       <div className="flex items-center">
-        <img src={item.image.url} alt={item.title} className="w-16 h-16 object-cover rounded-md mr-4" />
+        <img src={item.image.url} alt={item.title} className="w-16 h-16 object-cover rounded mr-4" />
         <div>
           <h3 className="text-lg font-semibold">{item.title}</h3>
           {item.discountedPrice && item.discountedPrice < item.price ? (
             <p>
               <span className="line-through text-gray-500 mr-2">Kr {item.price}</span>
-              <span className="text-green-500 font-bold">Kr {item.discountedPrice}</span>
+              <span className="text-green-600 font-bold">Kr {item.discountedPrice}</span>
             </p>
           ) : (
             <p>Kr {item.price}</p>

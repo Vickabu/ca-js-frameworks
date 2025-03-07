@@ -4,7 +4,7 @@ function Button({ text, onClick, type = "button", variant = "primary", className
     const baseStyles = "rounded text-base font-medium font-inherit transition duration-100 cursor-pointer shadow-md hover:scale-101";
 
     const variantStyles = {
-        primary: "bg-[#34ad15] hover:bg-[#2b8e12] px-5 py-1.5 text-white",
+        primary: "bg-[#046604] hover:bg-[#024002] px-5 py-1.5 text-white w-full",
         secondary: ""
     };
 

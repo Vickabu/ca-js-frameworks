@@ -52,7 +52,7 @@ function ProductPage() {
   if (!product) return <h2>Product not found</h2>;
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center p-5 shadow-xl mt-4">
       <div className="flex flex-col md:flex-row gap-5 md:gap-[50px] xl:gap-[100px] mt-10 mx-5">
         <div className="w-full h-[350px] md:h-[460px] md:max-w-[400px] overflow-hidden rounded">
           <img src={product.image.url} alt={product.title} className="w-full h-full object-cover" />
@@ -84,7 +84,8 @@ function ProductPage() {
             </div>
             <div>
               <Button text="Add to Cart" onClick={handleAddToCart}
-              variant="secondary"
+              variant="primary"
+              className="w-full"
               />
             </div>
             {cartQuantity === 0 ? null : <p className="text-[12px] md:text-[16px] lg:text-[18px]">Added to cart: {cartQuantity}</p>}

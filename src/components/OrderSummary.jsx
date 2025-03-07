@@ -30,7 +30,7 @@ export default function OrderSummary({
           <div className="text-right">
             <p>
               <span className="line-through text-gray-500 mr-2">Kr {originalTotal}</span>
-              <span className="text-green-500 font-bold">Kr {totalAmount}</span>
+              <span className="text-green-600 font-bold">Kr {totalAmount}</span>
             </p>
             <p className="text-green-800 text-sm font-semibold">
               You are saving kr {totalDiscount}!
