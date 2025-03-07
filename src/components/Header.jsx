@@ -119,7 +119,7 @@
                         <div className="mt-2">
                           {item.discountedPrice && item.discountedPrice < item.price ? (
                             <p className="flex flex-col">
-                              <span className="line-through text-[#BDBDBD] text-[10px] md:text-[14px] ">Kr {item.price}</span>
+                              <span className="line-through text-gray-500 text-[10px] md:text-[14px] ">Kr {item.price}</span>
                               <span className="text-green-600 font-bold text-[14px] md:text-[18px] ">Kr {item.discountedPrice}</span>
                             </p> 
                           ) : (

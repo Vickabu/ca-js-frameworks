@@ -17,7 +17,7 @@ const ProductListCard = ({ product }) => {
         <div className="mt-2">
           {product.discountedPrice && product.discountedPrice < product.price ? (
             <p className="flex flex-col">
-              <span className="line-through text-[#BDBDBD] text-[12px] md:text-[14px] lg:text-[16px]">Kr {product.price}</span>
+              <span className="line-through text-gray-500 text-[12px] md:text-[14px] lg:text-[16px]">Kr {product.price}</span>
               <span className="text-green-600 font-bold text-[16px] md:text-[18px] lg:text-[20px]">Kr {product.discountedPrice}</span>
             </p> 
           ) : (
