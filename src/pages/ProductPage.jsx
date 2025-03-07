@@ -7,11 +7,16 @@ import Reviews from "../components/Reviews";
 
 function ProductPage() {
   const { id } = useParams();
+  const { addToCart, cart } = UseCart();
+  console.log(cart);
+  
 
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const { addToCart } = UseCart();
+  const [ product, setProduct ] = useState(null);
+  const [ loading, setLoading ] = useState(true);
+  const [ error, setError ] = useState(null);
+  
+  const cartItem = cart.find((item) => item.id === id);
+  const cartQuantity = cartItem ? cartItem.quantity : 0;
 
   useEffect(() => {
     async function getProduct() {
@@ -22,6 +27,7 @@ function ProductPage() {
         }
         const data = await response.json();
         setProduct(data.data);
+
       } catch (err) {
         setError(err.message);
       } finally {
@@ -31,12 +37,13 @@ function ProductPage() {
 
     getProduct();
   }, [id]);
-
+  
   const handleAddToCart = () => {
     if (!product) {
       console.error("Product is null, cannot add to cart");
       return;
     }
+
     addToCart(product);
   };
 
@@ -79,6 +86,7 @@ function ProductPage() {
               variant="secondary"
               />
             </div>
+            {cartQuantity === 0 ? null : <p className="text-[12px] md:text-[16px] lg:text-[18px]">Added to cart: {cartQuantity}</p>}
           </div>
         </div>
       </div>    

@@ -1,4 +1,4 @@
-import CartItem from './cartItem'; 
+import CartItem from './CartItem'; 
 import PropTypes from "prop-types";
 
 export default function OrderSummary({
@@ -59,7 +59,7 @@ export default function OrderSummary({
 OrderSummary.propTypes = {
   cart: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      id: PropTypes.oneOfType([PropTypes.string]).isRequired,
       name: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
       quantity: PropTypes.number.isRequired,
