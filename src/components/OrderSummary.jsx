@@ -1,5 +1,5 @@
-import CartItem from './CartItem'; 
-import PropTypes from "prop-types";
+import CartItem from './CartItem';
+import PropTypes from 'prop-types';
 
 export default function OrderSummary({
   cart,
@@ -8,7 +8,7 @@ export default function OrderSummary({
   removeFromCart,
   updateQuantity,
 }) {
-  const totalDiscount = (originalTotal - totalAmount).toFixed(2); 
+  const totalDiscount = (originalTotal - totalAmount).toFixed(2);
 
   return (
     <div className="space-y-6">
@@ -16,7 +16,7 @@ export default function OrderSummary({
 
       {cart.map((item) => (
         <CartItem
-          key={item.id} 
+          key={item.id}
           item={item}
           handleQuantityChange={updateQuantity}
           handleRemoveFromCart={removeFromCart}
@@ -29,7 +29,9 @@ export default function OrderSummary({
         {totalAmount < originalTotal ? (
           <div className="text-right">
             <p>
-              <span className="line-through text-gray-500 mr-2">Kr {originalTotal}</span>
+              <span className="line-through text-gray-500 mr-2">
+                Kr {originalTotal}
+              </span>
               <span className="text-green-600 font-bold">Kr {totalAmount}</span>
             </p>
             <p className="text-green-800 text-sm font-semibold">

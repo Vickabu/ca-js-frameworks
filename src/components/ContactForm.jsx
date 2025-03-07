@@ -1,21 +1,33 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import PropTypes from "prop-types";
-import Button from "./Button";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import PropTypes from 'prop-types';
+import Button from './Button';
 
 const schema = yup.object().shape({
-  fullName: yup.string().min(3, "Full name must be at least 3 characters").required("Full name is required"),
-  subject: yup.string().min(3, "Subject must be at least 3 characters").required("Subject is required"),
-  email: yup.string().email("Invalid email format").required("Email is required"),
-  body: yup.string().min(3, "Message must be at least 3 characters").required("Message is required"),
+  fullName: yup
+    .string()
+    .min(3, 'Full name must be at least 3 characters')
+    .required('Full name is required'),
+  subject: yup
+    .string()
+    .min(3, 'Subject must be at least 3 characters')
+    .required('Subject is required'),
+  email: yup
+    .string()
+    .email('Invalid email format')
+    .required('Email is required'),
+  body: yup
+    .string()
+    .min(3, 'Message must be at least 3 characters')
+    .required('Message is required'),
 });
 
 const FormInput = ({ label, type, name, register, errors, placeholder }) => (
   <div>
     <label className="block font-medium mb-2">{label}</label>
-    {type === "textarea" ? (
+    {type === 'textarea' ? (
       <textarea
         {...register(name)}
         className="w-full p-3 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 h-40"
@@ -43,7 +55,7 @@ FormInput.propTypes = {
 };
 
 const ContactForm = () => {
-  const [successMessage, setSuccessMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState('');
   const {
     register,
     handleSubmit,
@@ -54,8 +66,8 @@ const ContactForm = () => {
   });
 
   const onSubmit = (data) => {
-    console.log("Form Data:", data);
-    setSuccessMessage("Thank you! Your message has been sent.");
+    console.log('Form Data:', data);
+    setSuccessMessage('Thank you! Your message has been sent.');
     reset();
   };
 
@@ -67,11 +79,39 @@ const ContactForm = () => {
         </p>
       )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <FormInput label="Full Name" type="text" name="fullName" register={register} errors={errors} placeholder="Enter your full name" />
-        <FormInput label="Subject" type="text" name="subject" register={register} errors={errors} placeholder="Enter the subject" />
-        <FormInput label="Email" type="email" name="email" register={register} errors={errors} placeholder="Enter your email" />
-        <FormInput label="Message" type="textarea" name="body" register={register} errors={errors} placeholder="Write your message here..." />
-        <Button text="Submit" type="submit" variant="primary"/>
+        <FormInput
+          label="Full Name"
+          type="text"
+          name="fullName"
+          register={register}
+          errors={errors}
+          placeholder="Enter your full name"
+        />
+        <FormInput
+          label="Subject"
+          type="text"
+          name="subject"
+          register={register}
+          errors={errors}
+          placeholder="Enter the subject"
+        />
+        <FormInput
+          label="Email"
+          type="email"
+          name="email"
+          register={register}
+          errors={errors}
+          placeholder="Enter your email"
+        />
+        <FormInput
+          label="Message"
+          type="textarea"
+          name="body"
+          register={register}
+          errors={errors}
+          placeholder="Write your message here..."
+        />
+        <Button text="Submit" type="submit" variant="primary" />
       </form>
     </div>
   );

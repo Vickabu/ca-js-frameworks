@@ -1,21 +1,21 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import { createContext, useContext, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem("cart");
+    const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
   const addToCart = (product) => {
     if (!product || !product.id) {
-      console.error("Invalid product data:", product);
+      console.error('Invalid product data:', product);
       return;
     }
 
@@ -24,7 +24,9 @@ export const CartProvider = ({ children }) => {
 
       if (existingItem) {
         return prevCart.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
         );
       } else {
         return [...prevCart, { ...product, quantity: 1 }];
@@ -38,8 +40,12 @@ export const CartProvider = ({ children }) => {
 
   const updateQuantity = (id, newQuantity) => {
     if (newQuantity <= 0) return;
-    
-    setCart((prevCart) => prevCart.map((item) => item.id === id ? {...item, quantity: newQuantity} : item));
+
+    setCart((prevCart) =>
+      prevCart.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item
+      )
+    );
   };
 
   const clearCart = () => {
@@ -47,14 +53,16 @@ export const CartProvider = ({ children }) => {
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart}}>
-      {children} 
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart }}
+    >
+      {children}
     </CartContext.Provider>
   );
 };
 
 CartProvider.propTypes = {
-  children: PropTypes.node.isRequired, 
+  children: PropTypes.node.isRequired,
 };
 
 export const UseCart = () => useContext(CartContext);

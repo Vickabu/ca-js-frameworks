@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const SearchBar = ({ onSearch }) => {
   return (
     <form>
-      <label >
+      <label>
         <input
           id="search"
           type="text"
@@ -13,7 +13,6 @@ const SearchBar = ({ onSearch }) => {
         />
       </label>
     </form>
-    
   );
 };
 

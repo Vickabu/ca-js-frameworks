@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import SearchBar from "../components/SearchBar";
-import ProductListCard from "../components/ProductListCard";
+import { useEffect, useState } from 'react';
+import SearchBar from '../components/SearchBar';
+import ProductListCard from '../components/ProductListCard';
 
-const url = "https://v2.api.noroff.dev/online-shop";
+const url = 'https://v2.api.noroff.dev/online-shop';
 
 function HomePage() {
-  const [products, setProducts] = useState([]); 
-  const [searchQuery, setSearchQuery] = useState(""); 
+  const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -14,13 +14,13 @@ function HomePage() {
     async function getProducts() {
       try {
         setLoading(true);
-        setError(null); 
-        
+        setError(null);
+
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`Error: ${response.status} ${response.statusText}`);
         }
-        
+
         const data = await response.json();
         setProducts(data.data);
       } catch (err) {
@@ -42,7 +42,12 @@ function HomePage() {
       <SearchBar onSearch={setSearchQuery} />
 
       {loading && <p className="text-center">Loading products...</p>}
-      {error && <p className="text-center text-red-500">Oops, we are a bit lazy today - hold your horses, reload and we will try catching up! {error}</p>}
+      {error && (
+        <p className="text-center text-red-500">
+          Oops, we are a bit lazy today - hold your horses, reload and we will
+          try catching up! {error}
+        </p>
+      )}
       {!loading && !error && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
           {filteredProducts.length > 0 ? (

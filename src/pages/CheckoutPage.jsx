@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { UseCart } from "../components/CartContext";  
-import OrderSummary from "../components/OrderSummary";  
-import PaymentForm from "../components/PaymentForm";  
-import CustomerForm from "../components/CustomerForm";
-import Button from "../components/Button";
-import { ShoppingCart, ChevronDown } from "lucide-react"; 
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UseCart } from '../components/CartContext';
+import OrderSummary from '../components/OrderSummary';
+import PaymentForm from '../components/PaymentForm';
+import CustomerForm from '../components/CustomerForm';
+import Button from '../components/Button';
+import { ShoppingCart, ChevronDown } from 'lucide-react';
 
 const generateOrderNumber = () => {
-  return `#${Math.floor(Math.random() * 900000) + 100000}`; 
+  return `#${Math.floor(Math.random() * 900000) + 100000}`;
 };
 
 export default function CheckoutPage() {
@@ -16,13 +16,13 @@ export default function CheckoutPage() {
   const navigate = useNavigate();
 
   const [customer, setCustomer] = useState({
-    fullName: "",
-    email: "",
-    address: "",
-    cardNumber: "",
-    expiryDate: "",
-    cvv: "",
-    cardOwner: "",
+    fullName: '',
+    email: '',
+    address: '',
+    cardNumber: '',
+    expiryDate: '',
+    cvv: '',
+    cardOwner: '',
   });
 
   const [totalAmount, setTotalAmount] = useState(0);
@@ -33,9 +33,13 @@ export default function CheckoutPage() {
       setTotalAmount(0);
       setOriginalTotal(0);
     } else {
-      const original = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      const original = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
       const total = cart.reduce(
-        (sum, item) => sum + (item.discountedPrice || item.price) * item.quantity,
+        (sum, item) =>
+          sum + (item.discountedPrice || item.price) * item.quantity,
         0
       );
       setOriginalTotal(original.toFixed(2));
@@ -48,9 +52,11 @@ export default function CheckoutPage() {
   };
 
   const handleOrderSubmit = () => {
-    const generatedOrderNumber = generateOrderNumber(); 
-    clearCart(); 
-    navigate("/checkout-success", { state: { orderNumber: generatedOrderNumber } }); 
+    const generatedOrderNumber = generateOrderNumber();
+    clearCart();
+    navigate('/checkout-success', {
+      state: { orderNumber: generatedOrderNumber },
+    });
   };
 
   return (
@@ -59,13 +65,20 @@ export default function CheckoutPage() {
         <div className="w-full text-center p-10 shadow-lg rounded align-center my-auto">
           <ShoppingCart size={50} className="mx-auto mb-4" />
           <p className="text-gray-600 text-lg font-semibold my-6">
-            Your cart is empty. You have to add stuff, to buy stuff - it is not that hard!
+            Your cart is empty. You have to add stuff, to buy stuff - it is not
+            that hard!
           </p>
-          <p className="mb-4">Push the button, choose a product, add it to your cart... then checkout...</p>
-          <ChevronDown size={24} className="text-gray-500 animate-bounce mx-auto" />
+          <p className="mb-4">
+            Push the button, choose a product, add it to your cart... then
+            checkout...
+          </p>
+          <ChevronDown
+            size={24}
+            className="text-gray-500 animate-bounce mx-auto"
+          />
           <Button
             text="Start Shopping"
-            onClick={() => navigate("/")}
+            onClick={() => navigate('/')}
             variant="primary"
           />
         </div>
@@ -82,14 +95,20 @@ export default function CheckoutPage() {
           </div>
 
           <div className="w-full md:w-1/3 p-6 shadow-lg rounded order-2 md:order-1">
-            <CustomerForm customer={customer} handleInputChange={handleInputChange} />
-            <PaymentForm customer={customer} handleInputChange={handleInputChange} />
+            <CustomerForm
+              customer={customer}
+              handleInputChange={handleInputChange}
+            />
+            <PaymentForm
+              customer={customer}
+              handleInputChange={handleInputChange}
+            />
 
-            <Button 
-              text="Complete Order" 
-              onClick={handleOrderSubmit} 
-              type="submit" 
-              variant="primary" 
+            <Button
+              text="Complete Order"
+              onClick={handleOrderSubmit}
+              type="submit"
+              variant="primary"
             />
           </div>
         </>
