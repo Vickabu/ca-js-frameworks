@@ -1,5 +1,20 @@
+import Button from "../components/Button";
+import { useNavigate } from "react-router-dom";
+
 function NotFoundPage() {
-  return <h1>Not Found Page</h1>;
+  const navigate = useNavigate();
+  return (
+    <div className="text-center my-auto shadow-lg rounded p-20">
+      <h1 className="text-2xl font-bold mb-5">404 - We were too lazy to make this page.. 🦥</h1>
+      <Button
+       text="Head back to Homepage"
+       onClick={() => navigate("/")}
+       variant="primary"
+      />
+    </div>
+  
+)
+
 }
 
 export default NotFoundPage;

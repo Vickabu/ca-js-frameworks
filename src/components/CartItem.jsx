@@ -5,7 +5,7 @@ import Button from "./Button";
 
 export default function CartItem({ item, handleQuantityChange, handleRemoveFromCart }) {
   return (
-    <div className="flex items-center justify-between border p-4 mb-4 rounded">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between border p-4 mb-4 rounded">
       <div className="flex items-center">
         <img src={item.image.url} alt={item.title} className="w-16 h-16 object-cover rounded mr-4" />
         <div>
@@ -21,7 +21,7 @@ export default function CartItem({ item, handleQuantityChange, handleRemoveFromC
         </div>
       </div>
 
-      <div className="flex items-center">
+      <div className="flex ml-auto mt-4 sm:mt-0">
         {item.quantity > 1 && (
            <Button 
            onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
@@ -31,21 +31,19 @@ export default function CartItem({ item, handleQuantityChange, handleRemoveFromC
          />
         )}
         <span className="px-4">{item.quantity}</span>
-
         <Button 
            onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
            variant="secondary"
            className="p-1 bg-gray-100 hover:bg-green-600"
            icon={<Plus size={16} />}
          />
-      </div>
-
-      <Button 
+         <Button 
            onClick={() => handleRemoveFromCart(item.id)}
            variant="secondary"
-           className="p-1 text-black bg-gray-100 hover:bg-red-500"
+           className="p-1 ml-5 text-black bg-gray-100 hover:bg-red-500"
            icon={<Trash2 size={20} />}
          />
+      </div>
     </div>
   );
 }
