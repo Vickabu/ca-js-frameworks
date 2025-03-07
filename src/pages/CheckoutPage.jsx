@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { UseCart } from "../components/CartContext";  
 import OrderSummary from "../components/OrderSummary";  
 import PaymentForm from "../components/PaymentForm";  
-import CustomerForm from "../components/CustomerForm";  
+import CustomerForm from "../components/CustomerForm";
+import Button from "../components/Button";
 
 export default function CheckoutPage() {
   const { cart, removeFromCart, updateQuantity, clearCart } = UseCart();
@@ -64,12 +65,12 @@ export default function CheckoutPage() {
         <CustomerForm customer={customer} handleInputChange={handleInputChange} />
         <PaymentForm customer={customer} handleInputChange={handleInputChange} />
 
-        <button
-          onClick={handleOrderSubmit}
-          className="mt-5 bg-green-600 py-2 px-4 w-full rounded-md font-bold hover:bg-green-700"
-        >
-          Complete Order
-        </button>
+        <Button 
+          text="Complete Order" 
+          onClick={handleOrderSubmit} 
+          type="submit" 
+          variant="secondary" 
+        />
       </div>
     </div>
   );

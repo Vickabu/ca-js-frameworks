@@ -75,7 +75,9 @@ function ProductPage() {
               )}
             </div>
             <div>
-              <Button text="Add to Cart" onClick={handleAddToCart} />
+              <Button text="Add to Cart" onClick={handleAddToCart}
+              variant="secondary"
+              />
             </div>
           </div>
         </div>
