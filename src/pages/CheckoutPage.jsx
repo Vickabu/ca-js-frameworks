@@ -64,7 +64,7 @@ export default function CheckoutPage() {
           <p className="mb-4">Push the button, choose a product, add it to your cart... then checkout...</p>
           <ChevronDown size={24} className="text-gray-500 animate-bounce mx-auto" />
           <button
-            onClick={() => navigate("/shop")}
+            onClick={() => navigate("/")}
             className=" text-white py-2 px-4 rounded-md font-bold"
           >
             Start Shopping
