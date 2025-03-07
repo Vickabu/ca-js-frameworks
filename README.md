@@ -1,5 +1,5 @@
 
-# Lazy Sales - Your low-stress, shop hard eCommerce Store
+# Lazy Sales - Your low-stress, shop hard - eCommerce Store
 ![Lazy Sales](public/lazysales-logo-BG.png)
 
 Welcome to Lazy Sales, where shopping is as easy ass a Sunday morning and discounts come without stress! 🛒💸
