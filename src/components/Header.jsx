@@ -103,7 +103,7 @@
               {isCartOverlayVisible && (
                 <div
                   ref={overlayRef}
-                  className="absolute right-[-32px] top-[40px] md:top-[62px]  md:w-[350px] bg-white p-8 shadow-lg z-10 transition-all duration-300 ease-out transform w-screen"
+                  className="absolute right-[-32px] top-[40px] md:top-[62px]  md:w-[450px] bg-white p-8 shadow-lg z-10 transition-all duration-300 ease-out transform w-screen"
                 >
                   {cart.map((item) => (
                     <div key={item.id} className="flex items-center justify-between mb-4">
@@ -111,12 +111,21 @@
                         <img
                           src={item.image.url}
                           alt={item.title}
-                          className="w-16 h-16 object-cover transition-transform duration-200 hover:scale-105"
+                          className="w-16 h-16 md:w-20 md:h-20 object-cover transition-transform duration-200 hover:scale-105 rounded"
                         />
                       )}
                       <div className="flex-1 px-2">
                         <h2 className="font-bold">{item.title}</h2>
-                        <p className="font-bold">Kr {item.price}</p>
+                        <div className="mt-2">
+                          {item.discountedPrice && item.discountedPrice < item.price ? (
+                            <p className="flex flex-col">
+                              <span className="line-through text-[#BDBDBD] text-[10px] md:text-[14px] ">Kr {item.price}</span>
+                              <span className="text-green-600 font-bold text-[14px] md:text-[18px] ">Kr {item.discountedPrice}</span>
+                            </p> 
+                          ) : (
+                            <p className="text-lg font-bold text-[14px] md:text-[18px]">Kr {item.price}</p>
+                          )}
+                        </div>
                       </div>
                       <Button 
                         onClick={() => removeFromCart(item.id)}
