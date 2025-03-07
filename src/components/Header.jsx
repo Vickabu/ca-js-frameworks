@@ -3,8 +3,8 @@
   import { ShoppingCart, Menu, X } from "lucide-react";
   import { UseCart } from "../components/CartContext";
   import Button from "../components/Button";
-  import logo from "../assets/lazySalesLogo.png";
-  import { Trash2} from "lucide-react";
+  import logo from "/lazy-sales-logo.png";
+  import { Trash2 } from "lucide-react";
   
   export default function Header() {
     const { cart, removeFromCart } = UseCart();
@@ -50,8 +50,8 @@
     }, [isCartOverlayVisible]);
   
     return (
-      <header className="bg-[#C8F9C6] relative h-[60px] md:h-[100px] flex flex-col justify-center">
-        <div className="flex items-center justify-between px-8">
+      <header className="bg-[#C8F9C6] relative flex flex-col justify-center">
+        <div className="flex items-center justify-between px-8 min-h-[60px] md:min-h-[100px]">
           <div className="flex items-center gap-4">
             <Link to="/" className="text-2xl font-bold text-black hover:underline">
               <img
@@ -66,44 +66,44 @@
             <nav className="hidden md:flex items-center gap-8 text-black">
               <Link
                 to="/"
-                className="hover:underline transition-colors duration-200 hover:text-gray-700"
+                className="hover:underline transition-colors duration-200"
               >
                 Home
               </Link>
               <Link
                 to="/contact"
-                className="hover:underline transition-colors duration-200 hover:text-gray-700"
+                className="hover:underline transition-colors duration-200"
               >
                 Contact
               </Link>
             </nav>
   
             <div className="md:hidden">
-            <Button 
-                onClick={toggleMenu} 
-                variant="secondary" 
-                className="p-2 focus:outline-none shadow-none"
-                icon={isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              />
-            </div>
+              <Button 
+                  onClick={toggleMenu} 
+                  variant="secondary" 
+                  className="p-2 focus:outline-none shadow-none"
+                  icon={isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                />
+              </div>
   
-            <div className="relative" ref={cartIconContainerRef}>
-              <div
-                onClick={toggleCartOverlay}
-                className="cursor-pointer relative transition-transform duration-200 hover:scale-110"
-              >
-                <ShoppingCart className="w-6 h-6" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                    {cartCount}
-                  </span>
-                )}
+              <div className="relative" ref={cartIconContainerRef}>
+                <div
+                  onClick={toggleCartOverlay}
+                  className="cursor-pointer relative transition-transform duration-200 hover:scale-110"
+                >
+                  <ShoppingCart className="w-6 h-6" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                      {cartCount}
+                    </span>
+                  )}
               </div>
   
               {isCartOverlayVisible && (
                 <div
                   ref={overlayRef}
-                  className="absolute right-[-32px] top-[40px] md:top-[62px]  md:w-[450px] bg-white p-8 shadow-lg z-10 transition-all duration-300 ease-out transform w-screen"
+                  className="absolute right-[-32px] top-[40px] md:top-[60px] md:w-[450px] bg-red-100 p-8 shadow-lg z-10 transition-all duration-300 ease-out transform w-screen"
                 >
                   {cart.map((item) => (
                     <div key={item.id} className="flex items-center justify-between mb-4">
@@ -153,14 +153,14 @@
             <Link
               onClick={() => setMenuOpen(false)}
               to="/"
-              className="block mb-2 hover:underline transition-colors duration-200 hover:text-gray-700"
+              className="block mb-2 hover:underline transition-colors duration-200 text-sm"
             >
               Home
             </Link>
             <Link
               onClick={() => setMenuOpen(false)}
               to="/contact"
-              className="block hover:underline transition-colors duration-200 hover:text-gray-700"
+              className="block hover:underline transition-colors duration-200 text-sm"
             >
               Contact
             </Link>
