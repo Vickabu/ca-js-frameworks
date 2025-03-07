@@ -1,4 +1,4 @@
-import CartItem from './cartItem'; 
+import CartItem from './CartItem'; 
 import PropTypes from "prop-types";
 
 export default function OrderSummary({
