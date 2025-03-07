@@ -1,4 +1,5 @@
 
+import PropTypes from "prop-types";
 
 export default function PaymentForm({ customer, handleInputChange }) {
   return (
@@ -25,3 +26,13 @@ export default function PaymentForm({ customer, handleInputChange }) {
     </div>
   );
 }
+
+PaymentForm.propTypes = {
+  customer: PropTypes.shape({
+    cardNumber: PropTypes.string.isRequired,
+    expiryDate: PropTypes.string.isRequired,
+    cvv: PropTypes.string.isRequired,
+    cardOwner: PropTypes.string.isRequired,
+  }).isRequired,
+  handleInputChange: PropTypes.func.isRequired,
+};
