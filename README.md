@@ -1,164 +1,70 @@
-# ca-js-frameworks
 
-# ca-js-frameworks
+# Lazy Sales - Your low-stress, shop hard eCommerce Store
+![Lazy Sales](public/lazysales-logo-BG.png)
 
-#Lazy Sales - eCommerce Store
+Welcome to Lazy Sales, where shopping is as easy ass a Sunday morning and discounts come without stress! 🛒💸
+
+Lazy Sales is a React-based eCommerce platform designed for those who love to shop with zero effort. Wheter you are scrolling through our homepage, adding products or checking out - we make it as smooth and stress free as possible! 
+Forget about long checkout processes or complicated forms. At Lazy Sales we are all about simplicity and **lazy shopping**🛍️
+
+## Meet The Lazy Sales Crew 🦥💤
+Fueled with coffe, Monster Ultra, last minut fixes and an unshakable dedication to taking it easy(to the deadline comes), the Lazy Sales team consist of:
+* [Anne Cathrine Hauge](https://github.com/annechh) - Deployment Specialist (aka _"It worked on my Machine"_)
+* [Andreas Abrahamsen](https://github.com/AndreasAUG23F) - Design Guru and Coffee Enthusiast!
+* [Andreas Solsem Joakimsen](https://github.com/Andreasjoa23) Code Whispere and Master of Chill! 
+* [Victoria Alexandra Bure](https://github.com/Vickabu) - Bug fixer and Professional Procrastinator!
+
+Somehow, against all odds (and our own best efforts to take it easy), we pulled it off!
+Trough a perfect mix of last-minut panic, creativ chaos, and just enough caffeine - Lazy Sales is finally live-enjoy! 
 
 [Live Demo](https://lazysales.netlify.app/)
 
-## Overview
+## Features
+* **Lazy Homepage:** A smooth and straightforward list of products. Need something spesific or to lazy to scroll? Just type in the search bar, and we will find it for you!
+*  **No-Fuss Product Page:** Check out the essentials: product name, description, and price + any sweet discounts. Add to cart with just one click and move on with your day.
+*  **Easy Checkout:** Just fill inn your name, email, shipping adress and payment - and you are done. Order confirmed, just with one click! ✅ 
+(sidenote: since its a school project and not an actuall site - you could be real lazy and skip filling inn your information as well!)
+* **Thank you Lazy Shopper!:** Once you have completed your order, our success page will greet you with an random order number. Then you are officially a part of the Lazy Sales family!🎉
+* **Lazy Contact Form:** Have a question? Fill out a short and simple contact form(with validation, of course!) and we will get back to you some day!(Or not at all, since this again - is an school project)
 
-Lazy Sales is an eCommerce store built as part of a school assignment to apply React knowledge. The project uses the Noroff API to fetch product data and features multiple pages including a homepage, individual product page, cart page, checkout success page, and a contact page.
+## Why Lazy Sales? 
+Because who has time for complicated shopping? We have taken the lazy approach to building this store, so you can focus on what matters: finding great products and enjoying your free time!
+Whether you are looking for a new gadget, a stylish outfit, or just some cool accessories, Lazy Sales has what you need without all the hassle.
 
-## Assignment Brief
+## Technologies Used
+* **React:** For building our lazy, user-friendly interface.
+* **React Router:** To help you navigate our world of shopping smoothly.
+* **Styled-Components:** For a stylish look.
+* **API integration**: We fetch products from a cool API, so you're always up to date with our amazing stock.
 
-**API:**  
-[https://v2.api.noroff.dev/online-shop](https://v2.api.noroff.dev/online-shop)
+## How to Start Your Lazy Shopping Journey
 
-**Task:**
-
-- **Homepage:**
-  - Displays a list of all products.
-  - Includes a look-ahead search bar that filters products as the user types.
-  - Clicking on a product navigates the user to the individual product page.
-- **Individual Product Page:**
-  - Displays detailed data for a single product including title, description, image, and reviews (if any).
-  - Uses the `discountedPrice` property to show the price and calculates the discount if applicable.
-  - Contains an "Add to cart" button that adds the product to the cart.
-- **Cart Page:**
-  - Displays all products added to the cart along with a total.
-  - Includes a Checkout button.
-  - The Cart icon in the header shows the current number of items in the cart.
-- **Checkout Success Page:**
-  - Displays a confirmation message that the order was successful.
-  - Provides a link to return to the store.
-  - Clears the cart upon visiting this page.
-- **Contact Page:**
-  - Contains a contact form with the following required fields:
-    - Full name (minimum 3 characters)
-    - Subject (minimum 3 characters)
-    - Email (must be a valid email address)
-    - Body (minimum 3 characters)
-  - The form validates the input and logs the data once validation passes.
-
-Additional requirements include:
-
-- Using a `<Layout>` component that wraps all pages with a header and footer.
-- Implementing responsive design, including a hamburger menu for mobile navigation.
-- Using React Router for page navigation.
-- Code must be clean, well-formatted, and deployable on Netlify.
-
-## Project Structure
-
-├── public
-│ └── …
-├── src
-│ ├── assets
-│ │ └── lazySalesLogo.png
-│ ├── components
-├── Button.jsx
-│ │ ├── CartContext.jsx
-│ │ ├── CartOverlay.jsx
-│ │ ├── ContactForm.jsx
-│ │ ├── CustomerForm.jsx
-│ │ ├── ErrorMessage.jsx
-│ │ ├── Footer.jsx
-│ │ └── Header.jsx
-│ │ ├── Layout.jsx
-│ │ ├── Loader.jsx
-│ │ ├── PaymentForm.jsx
-│ │ ├── ProductDetails.jsx
-│ │ ├── ProductList.jsx
-│ │ ├── ProductListCard.jsx
-│ │ ├── Ratings.jsx
-│ │ ├── Reviews.jsx
-│ │ ├── SearchBar.jsx
-│ ├── pages
-│ │ ├── HomePage.jsx
-│ │ ├── ProductPage.jsx
-│ │ ├── CartPage.jsx
-│ │ ├── CheckoutPage.jsx
-│ │ ├── CheckoutSuccessPage.jsx
-│ │ └── ContactPage.jsx
-│ ├── App.css
-│ ├── App.jsx
-│ ├── index.css
-│ └── main.jsx
-└── package.json
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js (>= 14.x)
-- npm or yarn
-
-### Installation
-
-1. **Clone the repository:**
-
+1. Clone the repository to your local machine:
    ```bash
-   git clone <YOUR_REPOSITORY_URL>
-
-   ```
-
-2. **Navigate to the project folder:**
-   cd lazy-sales
-
-3. **Install dependencies:**
+   git clone https://github.com/annechh/ca-js-frameworks.git
+   
+2. Install the necessary dependencies:
+   ```bash
    npm install
+   
+3. Build the app:
+   ```bash
+   npm build
+   
+4. Start the app:
+   ```bash
+   npm run dev
 
-# or
+## Deployment
+Want to skip the setup and go straight to shopping? No-stress! You can check out the [live version on Netlify](https://lazysales.netlify.app/)
 
-yarn install
+## Contributing
+Lazy sales is always open to new ideas, features or bug fixes - though we prefer if you contribruted at a lazy pace 🐢
+Feel free to fork the repo, create a branch and submit a pull request. But remeber - no rush, take your time! ... and again this is a school project, so we cant merge any pull request before our teachers are done grading us😱
 
-**Running Locally**
+## License
+This project is licensed under the MIT License. You can do whatever you want with it... but take it chill! 😎
 
-Start the project in development mode:
-npm run dev
+___
+Now go ahead, be a lazy shopper and enjoy the most chillax shopping experience of your life! 🦥
 
-# or
-
-yarn dev
-
-Then open http://localhost:3000 in your browser.
-
-**Deployment**
-
-The project is deployed on Netlify and can be viewed here:
-https://lazysales.netlify.app/
-
-Features
-• Responsive Design:
-Uses a responsive layout with a hamburger menu for mobile devices.
-• Dynamic Routing:
-Uses React Router for navigation between pages, including dynamic product pages.
-• Search Functionality:
-The homepage includes an auto-complete search bar that filters products by title.
-• Shopping Cart:
-Users can add products to the cart, view cart items via an overlay, remove items, and proceed to checkout.
-• Checkout Flow:
-Upon checkout, the user is directed to a success page and the cart is cleared.
-• Contact Form:
-A contact page with form validation for full name, subject, email, and message.
-
-Technologies Used
-• React with Vite
-• React Router for navigation
-• Tailwind CSS for styling and responsive design
-• LocalStorage for persisting cart data
-
-Contributors
-• Andreas Solsem Joakimsen
-• Victoria Bure
-• Anne Cathrine Hauge
-• Andreas Abrahamsen
-
-Future Improvements
-• Integration with additional API endpoints for order processing.
-• Enhanced form validation and error handling.
-• Further UI/UX improvements and performance optimizations.
-
----
-
-This README.md provides a detailed overview of your project, instructions for setup, features, and contributor credits. You can update the repository URL, tweak the descriptions, or add further sections as needed.
