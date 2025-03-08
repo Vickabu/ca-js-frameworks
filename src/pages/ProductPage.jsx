@@ -63,7 +63,7 @@ function ProductPage() {
             />
           </div>
 
-          <div className="flex flex-col max-w-[400px] w-full">
+          <div className="flex flex-col md:max-w-[400px] w-full">
             <div className="flex flex-col gap-5 pb-2 border-b border-[#BDBDBD]">
               <h1 className="text-[18px] md:text-[24px] lg:text-[32px] font-bold">
                 {product.title}
