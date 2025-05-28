@@ -66,7 +66,7 @@ Whether you are looking for a new gadget, a stylish outfit, or just some cool ac
 
 ## Deployment
 
-Want to skip the setup and go straight to shopping? No-stress! You can check out the [live version on Netlify](https://lazysales.netlify.app/)
+Want to skip the setup and go straight to shopping? No-stress! You can check out the [live version on Netlify](https://holidaze-mode.netlify.app/)
 
 ## Contributing
 
