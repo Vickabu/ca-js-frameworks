@@ -4,7 +4,9 @@ export default function PaymentForm({ customer, handleInputChange }) {
   return (
     <div>
       <h2 className="text-xl font-bold mb-4">Payment Information</h2>
+      <label htmlFor="cardNumber" className="sr-only"></label>
       <input
+        id="cardNumber"
         type="text"
         name="cardNumber"
         placeholder="Card Number"
@@ -13,7 +15,9 @@ export default function PaymentForm({ customer, handleInputChange }) {
         className="border p-2 w-full mb-3 rounded shadow-lg"
       />
       <div className="flex gap-2 mb-3">
+        <label htmlFor="date" className="sr-only"></label>
         <input
+          id="date"
           type="text"
           name="expiryDate"
           placeholder="MM/YY"
@@ -21,7 +25,9 @@ export default function PaymentForm({ customer, handleInputChange }) {
           onChange={handleInputChange}
           className="border p-2 w-1/2 rounded shadow-lg"
         />
+        <label htmlFor="cvv" className="sr-only"></label>
         <input
+          id="cvv"
           type="text"
           name="cvv"
           placeholder="CVV"
@@ -30,7 +36,9 @@ export default function PaymentForm({ customer, handleInputChange }) {
           className="border p-2 w-1/2 rounded shadow-lg"
         />
       </div>
+      <label htmlFor="cardOwner" className="sr-only"></label>
       <input
+        id="cardOwner"
         type="text"
         name="cardOwner"
         placeholder="Cardholder's Name"
