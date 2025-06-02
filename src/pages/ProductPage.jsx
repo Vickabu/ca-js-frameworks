@@ -1,49 +1,25 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { UseCart } from '../components/CartContext';
 import Ratings from '../components/Ratings';
 import Button from '../components/Button';
 import Reviews from '../components/Reviews';
+import { useFetch } from '../hooks/useFetch';
+import { API_SHOP } from '../api/constants';
+
 
 function ProductPage() {
   const { id } = useParams();
   const { addToCart, cart } = UseCart();
-  console.log(cart);
 
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
+  const { data: product, loading, error } = useFetch(`${API_SHOP}/${id}`);
   const cartItem = cart.find((item) => item.id === id);
   const cartQuantity = cartItem ? cartItem.quantity : 0;
-
-  useEffect(() => {
-    async function getProduct() {
-      try {
-        const response = await fetch(
-          `https://v2.api.noroff.dev/online-shop/${id}`
-        );
-        if (!response.ok) {
-          throw new Error('Product not found');
-        }
-        const data = await response.json();
-        setProduct(data.data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getProduct();
-  }, [id]);
 
   const handleAddToCart = () => {
     if (!product) {
       console.error('Product is null, cannot add to cart');
       return;
     }
-
     addToCart(product);
   };
 
