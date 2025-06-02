@@ -4,7 +4,9 @@ export default function CustomerForm({ customer, handleInputChange }) {
   return (
     <div className="mb-6">
       <h2 className="text-xl font-bold mb-4">Customer Information</h2>
+      <label htmlFor="fullName" className="sr-only"></label>
       <input
+        id="fullName"
         type="text"
         name="fullName"
         placeholder="Full Name"
@@ -12,7 +14,9 @@ export default function CustomerForm({ customer, handleInputChange }) {
         onChange={handleInputChange}
         className="border p-2 w-full mb-3 rounded shadow-lg"
       />
+      <label htmlFor="email" className="sr-only"></label>
       <input
+        id="email"
         type="email"
         name="email"
         placeholder="Email Address"
@@ -20,7 +24,9 @@ export default function CustomerForm({ customer, handleInputChange }) {
         onChange={handleInputChange}
         className="border p-2 w-full mb-3 rounded shadow-lg"
       />
+      <label htmlFor="address" className="sr-only"></label>
       <input
+        id="address"
         type="text"
         name="address"
         placeholder="Shipping Address"

@@ -24,9 +24,19 @@ const schema = yup.object().shape({
     .required('Message is required'),
 });
 
-const FormInput = ({ label, type, name, register, errors, placeholder }) => (
+const FormInput = ({
+  id,
+  label,
+  type,
+  name,
+  register,
+  errors,
+  placeholder,
+}) => (
   <div>
-    <label className="block font-medium mb-2">{label}</label>
+    <label htmlFor={id} className="block font-medium mb-2">
+      {label}
+    </label>
     {type === 'textarea' ? (
       <textarea
         {...register(name)}
@@ -46,6 +56,7 @@ const FormInput = ({ label, type, name, register, errors, placeholder }) => (
 );
 
 FormInput.propTypes = {
+  id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -80,6 +91,7 @@ const ContactForm = () => {
       )}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <FormInput
+          id="fullName"
           label="Full Name"
           type="text"
           name="fullName"
@@ -88,6 +100,7 @@ const ContactForm = () => {
           placeholder="Enter your full name"
         />
         <FormInput
+          id="subject"
           label="Subject"
           type="text"
           name="subject"
@@ -96,6 +109,7 @@ const ContactForm = () => {
           placeholder="Enter the subject"
         />
         <FormInput
+          id="email"
           label="Email"
           type="email"
           name="email"
@@ -104,6 +118,7 @@ const ContactForm = () => {
           placeholder="Enter your email"
         />
         <FormInput
+          id="body"
           label="Message"
           type="textarea"
           name="body"
