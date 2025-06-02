@@ -13,14 +13,12 @@ const Reviews = ({ reviews }) => {
         className="font-semibold cursor-pointer"
       >
         {isOpen ? (
-          <>
-            <div className="flex items-center gap-1">
-              <X className="text-red-600 w-[20px] md:w-[24px] lg:w-[30px]" />
-              <span className="text-[14px] md:text-[16px] lg:text-[18px] font-regular">
-                Close
-              </span>
-            </div>
-          </>
+          <div className="flex items-center gap-1">
+            <X className="text-red-600 w-[20px] md:w-[24px] lg:w-[30px]" />
+            <span className="text-[14px] md:text-[16px] lg:text-[18px] font-regular">
+              Close
+            </span>
+          </div>
         ) : reviews.length > 0 ? (
           `Reviews: ${reviews.length}`
         ) : (
