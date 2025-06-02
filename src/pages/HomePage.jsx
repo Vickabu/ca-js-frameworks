@@ -1,41 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import ProductListCard from '../components/ProductListCard';
+import { useFetch } from '../hooks/useFetch';
+import { API_SHOP } from '../api/constants';
 
-const url = 'https://v2.api.noroff.dev/online-shop';
+
 
 function HomePage() {
-  const [products, setProducts] = useState([]);
+  const { data: products = [], loading, error } = useFetch(API_SHOP);
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function getProducts() {
-      try {
-        setLoading(true);
-        setError(null);
-
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`);
-        }
-
-        const data = await response.json();
-        setProducts(data.data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    getProducts();
-  }, []);
 
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
 
   return (
     <div className="mt-10 max-w-[1440px] w-full mx-5">
