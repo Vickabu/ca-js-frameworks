@@ -97,9 +97,11 @@ export default function Header() {
           </div>
 
           <div className="relative" ref={cartIconContainerRef}>
-            <div
+            <button
               onClick={toggleCartOverlay}
-              className="cursor-pointer relative transition-transform duration-200 hover:scale-110"
+              className="relative transition-transform duration-200 hover:scale-110 cursor-pointer"
+              type="button"
+              aria-label="Toggle cart overlay"
             >
               <ShoppingCart className="w-6 h-6" />
               {cartCount > 0 && (
@@ -107,7 +109,7 @@ export default function Header() {
                   {cartCount}
                 </span>
               )}
-            </div>
+            </button>
 
             {isCartOverlayVisible && (
               <div

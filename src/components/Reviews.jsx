@@ -8,26 +8,32 @@ const Reviews = ({ reviews }) => {
 
   return (
     <div>
-      <div
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        className="font-semibold cursor-pointer"
+        className="font-semibold cursor-pointer flex items-center gap-1"
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls="reviews-list"
       >
         {isOpen ? (
-          <div className="flex items-center gap-1">
+          <>
             <X className="text-red-600 w-[20px] md:w-[24px] lg:w-[30px]" />
             <span className="text-[14px] md:text-[16px] lg:text-[18px] font-regular">
               Close
             </span>
-          </div>
+          </>
         ) : reviews.length > 0 ? (
           `Reviews: ${reviews.length}`
         ) : (
           'No reviews yet'
         )}
-      </div>
+      </button>
 
       {isOpen && reviews.length > 0 && (
-        <ul className="mt-2 border border-[#BDBDBD] px-4 py-2 rounded ">
+        <ul
+          id="reviews-list"
+          className="mt-2 border border-[#BDBDBD] px-4 py-2 rounded"
+        >
           {reviews.map((review) => (
             <li key={review.id}>
               <p className="text-[10px] md:text-[14px] font-semibold">
