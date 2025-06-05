@@ -2,6 +2,24 @@ import PropTypes from 'prop-types';
 import Ratings from './Ratings';
 import { Link } from 'react-router-dom';
 
+/**
+ * ProductListCard component renders a single product item within a product list.
+ * Displays product image, title, pricing (including discounts), and rating.
+ * Wraps the card in a link to the product detail page.
+ *
+ * @component
+ * @param {Object} props
+ * @param {Object} props.product - The product to display.
+ * @param {string} props.product.id - Unique identifier for the product.
+ * @param {string} props.product.title - Title of the product.
+ * @param {Object} props.product.image - Image object for the product.
+ * @param {string} props.product.image.url - URL of the product image.
+ * @param {number} props.product.price - Original price of the product.
+ * @param {number} [props.product.discountedPrice] - Discounted price if available.
+ * @param {number} [props.product.rating] - Average user rating for the product.
+ * @returns {JSX.Element} The rendered product list card.
+ */
+
 const ProductListCard = ({ product }) => {
   return (
     <Link to={`/product/${product.id}`}>

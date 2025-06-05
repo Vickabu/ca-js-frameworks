@@ -1,3 +1,44 @@
+/**
+ * Cart context for managing a shopping cart.
+ *
+ * Exports:
+ * - CartProvider: React Context Provider that wraps children components and provides cart state and actions.
+ * - UseCart: Custom hook to access cart state and functions.
+ *
+ * @typedef {Object} CartItem
+ * @property {string|number} id - Unique product ID
+ * @property {string} [title] - Name or title of the product
+ * @property {number} quantity - Number of items in the cart
+ * @property {any} [rest] - Any additional product data
+ *
+ * @function CartProvider
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Components that consume the cart context
+ * @returns {JSX.Element}
+ *
+ * @function addToCart
+ * @param {CartItem} product - Product to add to the cart
+ *
+ * @function removeFromCart
+ * @param {string|number} id - ID of the product to remove
+ *
+ * @function updateQuantity
+ * @param {string|number} id - ID of the product to update
+ * @param {number} newQuantity - New quantity (must be > 0)
+ *
+ * @function clearCart
+ * Clears all items from the cart
+ *
+ * @function UseCart
+ * @returns {{
+ *   cart: CartItem[],
+ *   addToCart: function,
+ *   removeFromCart: function,
+ *   updateQuantity: function,
+ *   clearCart: function
+ * }}
+ */
+
 import { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 

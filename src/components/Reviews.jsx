@@ -1,3 +1,10 @@
+/**
+ * @file Reviews component renders a toggleable list of user reviews for a product.
+ * It displays a button showing the number of reviews or a "No reviews yet" message,
+ * and allows users to expand or collapse the full review list.
+ * Each review includes a username, a description, and a visual rating.
+ */
+
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Ratings from './Ratings';

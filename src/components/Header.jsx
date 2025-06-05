@@ -1,3 +1,14 @@
+/**
+ * Header component that includes the site logo, navigation links,
+ * a responsive menu toggle, and a cart overlay displaying items.
+ *
+ * It uses React state and refs to manage visibility of the cart overlay
+ * and mobile menu. Cart data is accessed via the CartContext.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
+
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, Menu, X } from 'lucide-react';

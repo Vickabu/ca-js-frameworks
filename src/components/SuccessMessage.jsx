@@ -1,3 +1,8 @@
+/**
+ * @file SuccessMessage component displays a confirmation message after an order is placed.
+ * It shows the order number and a lighthearted message to the user.
+ */
+
 import { CheckCircle } from 'lucide-react';
 import PropTypes from 'prop-types';
 

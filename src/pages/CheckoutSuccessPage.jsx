@@ -1,3 +1,8 @@
+/**
+ * @file CheckoutSuccessPage displays a confirmation message after a successful checkout.
+ * It shows the order number and provides a button to continue shopping.
+ */
+
 import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import SuccessMessage from '../components/SuccessMessage';

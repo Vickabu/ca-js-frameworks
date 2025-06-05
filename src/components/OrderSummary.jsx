@@ -1,6 +1,20 @@
 import CartItem from './CartItem';
 import PropTypes from 'prop-types';
 
+/**
+ * OrderSummary component displays the summary of the shopping cart,
+ * including all cart items, subtotal, discounts, shipping, and total.
+ *
+ * @component
+ * @param {Object} props - Props for the OrderSummary component.
+ * @param {Array} props.cart - Array of cart items to display.
+ * @param {number} props.totalAmount - Final total after discounts.
+ * @param {number} props.originalTotal - Original total before discounts.
+ * @param {Function} props.removeFromCart - Function to remove an item from the cart.
+ * @param {Function} props.updateQuantity - Function to update item quantity.
+ * @returns {JSX.Element}
+ */
+
 export default function OrderSummary({
   cart,
   totalAmount,

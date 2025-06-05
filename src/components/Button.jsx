@@ -1,3 +1,18 @@
+/**
+ * Reusable button component with optional icon and variant styling.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.text - Text content inside the button
+ * @param {function} [props.onClick] - Optional click handler
+ * @param {string} [props.type='button'] - Button type (e.g. 'button', 'submit')
+ * @param {'primary'|'secondary'} [props.variant='primary'] - Visual style variant
+ * @param {string} [props.className] - Additional CSS classes
+ * @param {React.ReactNode} [props.icon] - Optional icon element rendered next to the text
+ *
+ * @returns {JSX.Element} Rendered button component
+ */
+
 import PropTypes from 'prop-types';
 
 function Button({

@@ -1,3 +1,13 @@
+/**
+ * CustomerForm is a form component for capturing customer information like name, email, and address.
+ *
+ * @component
+ * @param {Object} props
+ * @param {{ fullName: string, email: string, address: string }} props.customer - The customer object with current values
+ * @param {function} props.handleInputChange - Callback function triggered when an input field changes
+ * @returns {JSX.Element}
+ */
+
 import PropTypes from 'prop-types';
 
 export default function CustomerForm({ customer, handleInputChange }) {

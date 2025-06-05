@@ -1,3 +1,9 @@
+/**
+ * @file App.js
+ * Sets up the main application routes using React Router and wraps the app in the CartProvider context.
+ * Defines all public routes, including home, product detail, checkout, and error pages.
+ */
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './components/CartContext';
 import Layout from './components/Layout';

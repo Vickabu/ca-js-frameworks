@@ -1,3 +1,9 @@
+/**
+ * @file CheckoutPage component handles the checkout process.
+ * It includes customer and payment forms, displays the order summary,
+ * and allows users to finalize their order.
+ */
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UseCart } from '../components/CartContext';

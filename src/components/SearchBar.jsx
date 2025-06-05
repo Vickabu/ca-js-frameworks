@@ -1,3 +1,8 @@
+/**
+ * @file SearchBar component renders a search input field for filtering products.
+ * It triggers the onSearch callback whenever the user types in the input field.
+ */
+
 import PropTypes from 'prop-types';
 
 const SearchBar = ({ onSearch }) => {

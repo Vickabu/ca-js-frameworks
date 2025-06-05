@@ -1,3 +1,26 @@
+/**
+ * ContactForm is a contact form component using react-hook-form and Yup for validation.
+ * It allows users to submit a message with name, subject, email, and message body.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
+
+/**
+ * FormInput is a reusable form input component supporting both input and textarea types.
+ *
+ * @component
+ * @param {Object} props
+ * @param {string} props.id - The HTML id of the form field
+ * @param {string} props.label - The label text for the input
+ * @param {string} props.type - The input type (e.g. 'text', 'email', 'textarea')
+ * @param {string} props.name - The name for the input, used by react-hook-form
+ * @param {function} props.register - react-hook-form's register function
+ * @param {Object} props.errors - Errors object from react-hook-form
+ * @param {string} [props.placeholder] - Optional placeholder text
+ * @returns {JSX.Element}
+ */
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';

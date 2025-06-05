@@ -1,3 +1,20 @@
+/**
+ * CartItem component displays a product in the cart with controls for quantity and removal.
+ *
+ * @component
+ * @param {Object} props
+ * @param {Object} props.item - The cart item object
+ * @param {string|number} props.item.id - Unique product ID
+ * @param {string} props.item.title - Title of the product
+ * @param {number} props.item.price - Original price of the product
+ * @param {number} [props.item.discountedPrice] - Discounted price, if any
+ * @param {number} props.item.quantity - Number of items
+ * @param {{ url: string }} props.item.image - Product image object
+ * @param {Function} props.handleQuantityChange - Function to update item quantity
+ * @param {Function} props.handleRemoveFromCart - Function to remove item from cart
+ * @returns {JSX.Element}
+ */
+
 import PropTypes from 'prop-types';
 import { Trash2, Plus, Minus } from 'lucide-react';
 import Button from './Button';

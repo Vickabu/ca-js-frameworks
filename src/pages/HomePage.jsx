@@ -1,10 +1,14 @@
+/**
+ * @file HomePage is the main landing page displaying products from the API.
+ * It features a searchable product list using a SearchBar and renders
+ * individual ProductListCard components.
+ */
+
 import { useState } from 'react';
 import SearchBar from '../components/SearchBar';
 import ProductListCard from '../components/ProductListCard';
 import { useFetch } from '../hooks/useFetch';
 import { API_SHOP } from '../api/constants';
-
-
 
 function HomePage() {
   const { data: products = [], loading, error } = useFetch(API_SHOP);
@@ -13,7 +17,6 @@ function HomePage() {
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
 
   return (
     <div className="mt-10 max-w-[1440px] w-full mx-5">

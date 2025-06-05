@@ -1,5 +1,21 @@
 import PropTypes from 'prop-types';
 
+/**
+ * PaymentForm component collects and handles credit card details such as card number,
+ * expiry date, CVV, and cardholder's name. It relies on a controlled form model,
+ * receiving current values via `customer` and updates via `handleInputChange`.
+ *
+ * @component
+ * @param {Object} props
+ * @param {Object} props.customer - Object containing payment details.
+ * @param {string} props.customer.cardNumber - The credit card number.
+ * @param {string} props.customer.expiryDate - The card's expiration date.
+ * @param {string} props.customer.cvv - The CVV code from the card.
+ * @param {string} props.customer.cardOwner - The name of the cardholder.
+ * @param {Function} props.handleInputChange - Callback to update input values.
+ * @returns {JSX.Element} The rendered payment form.
+ */
+
 export default function PaymentForm({ customer, handleInputChange }) {
   return (
     <div>

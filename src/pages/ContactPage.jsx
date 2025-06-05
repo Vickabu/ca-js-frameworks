@@ -1,3 +1,8 @@
+/**
+ * @file ContactPage renders the "Contact Us" section with a heading and the ContactForm component.
+ * This page is meant to provide users with a form to get in touch.
+ */
+
 import ContactForm from '../components/ContactForm';
 
 const ContactPage = () => {

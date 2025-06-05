@@ -1,3 +1,10 @@
+/**
+ * Footer component displaying the Lazy Sales logo and basic navigation links.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
+
 import { Link } from 'react-router-dom';
 import logo from '/lazy-sales-icon.png';
 

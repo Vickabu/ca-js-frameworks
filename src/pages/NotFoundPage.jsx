@@ -1,3 +1,8 @@
+/**
+ * @file NotFoundPage is a simple 404 fallback component.
+ * It displays a message and provides a button to navigate back to the homepage.
+ */
+
 import Button from '../components/Button';
 import { useNavigate } from 'react-router-dom';
 

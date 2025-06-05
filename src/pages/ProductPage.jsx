@@ -1,3 +1,9 @@
+/**
+ * @file ProductPage renders a detailed view of a single product,
+ * including description, price (with discount logic), reviews, and add-to-cart functionality.
+ * It fetches product data using the `useFetch` hook based on the product ID from the route params.
+ */
+
 import { useParams } from 'react-router-dom';
 import { UseCart } from '../components/CartContext';
 import Ratings from '../components/Ratings';
@@ -5,7 +11,6 @@ import Button from '../components/Button';
 import Reviews from '../components/Reviews';
 import { useFetch } from '../hooks/useFetch';
 import { API_SHOP } from '../api/constants';
-
 
 function ProductPage() {
   const { id } = useParams();

@@ -1,6 +1,16 @@
 import { Star } from 'lucide-react';
 import PropTypes from 'prop-types';
 
+/**
+ * Ratings component displays a 5-star rating system.
+ * Highlights stars based on the rounded `rating` value passed in.
+ *
+ * @component
+ * @param {Object} props
+ * @param {number} [props.rating=0] - The rating value, from 0 to 5.
+ * @returns {JSX.Element} The rendered star rating component.
+ */
+
 const Ratings = ({ rating = 0 }) => {
   const roundedRating = Math.round(rating);
 
